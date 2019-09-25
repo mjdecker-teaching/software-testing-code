@@ -34,55 +34,45 @@ boost::unit_test::test_suite * init_unit_test_suite( int argc, char* argv[] )
 
 
 /** auto registration show test suite afterwards*/
-//BOOST_AUTO_TEST_SUITE(test_equals)
+// BOOST_AUTO_TEST_SUITE(test_equals)
 
- BOOST_AUTO_TEST_CASE(equals_simple_1) {
+// BOOST_AUTO_TEST_CASE(equals_simple_1) {
     
-     complex zero_one(0, 0);
-     complex zero_two(0, 0);
+//     complex zero_one(0, 0);
+//     complex zero_two(0, 0);
    
-     BOOST_TEST(zero_one == zero_two);
-}
+//     BOOST_TEST(zero_one == zero_two);
+// }
 
- BOOST_AUTO_TEST_CASE(equals_simple_2) {
+// BOOST_AUTO_TEST_CASE(equals_simple_2) {
     
-     complex num_one(10, 1);
-     complex num_two(10, 1);
+//     complex num_one(10, 1);
+//     complex num_two(10, 1);
    
-    BOOST_TEST(num_one == num_two);
- }
+//     BOOST_TEST(num_one == num_two);
+// }
 
- BOOST_AUTO_TEST_CASE(equals_not_1) {
+// BOOST_AUTO_TEST_CASE(equals_not_1) {
     
-     complex num_one(11, 1);
-     complex num_two(11, 2);
-  
-     BOOST_TEST(!(num_one == num_two));
- }
-
- BOOST_AUTO_TEST_CASE(equals_not_2) {
+//     complex num_one(11, 1);
+//     complex num_two(11, 2);
    
-     complex num_one(11, 1);
-     complex num_two(12, 1);
-   
-     BOOST_TEST(!(num_one == num_two));
- }
+//     BOOST_TEST(!(num_one == num_two));
+// }
 
-BOOST_AUTO_TEST_CASE(equals_not_3) {
+// BOOST_AUTO_TEST_CASE(equals_not_2) {
     
-     complex num_one(11, 1);
-     complex num_two(12, 2);
+//     complex num_one(11, 1);
+//     complex num_two(12, 1);
    
-     BOOST_TEST(!(num_one == num_two));
- }
+//     BOOST_TEST(!(num_one == num_two));
+// }
 
-BOOST_AUTO_TEST_CASE(divide) {
+// BOOST_AUTO_TEST_CASE(equals_not_3) {
     
-     complex num_one(1, 0);
-     complex num_two(0, 0);
+//     complex num_one(11, 1);
+//     complex num_two(12, 2);
    
-     BOOST_CHECK_THROW(num_one / num_two, std::invalid_argument);
- }
-
-
+//     BOOST_TEST(!(num_one == num_two));
+// }
 // BOOST_AUTO_TEST_SUITE_END()
