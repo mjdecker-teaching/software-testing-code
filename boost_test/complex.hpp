@@ -30,14 +30,12 @@ public:
   }
 
   friend complex operator/(complex lhs, const complex & rhs) throw(std::invalid_argument) {
-    // not going to waste time with real division
+    /** not going to waste time with real division 
+      errors on no exception or wrong exception
+      */
     if(rhs == complex()) throw std::invalid_argument("rhs is zero");
     return complex(lhs.real / rhs.real);
   }
-
-    friend std::ostream & operator<<(std::ostream & out, const complex & number) {
-	return out << number.real << " + " << number.imaginary << "i";
-    }
 
 };
 
