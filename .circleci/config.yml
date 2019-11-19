@@ -29,9 +29,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: my_st/build
-      - run: cp bin/bigint.o assignments/bigint/
-      - run: cd assignments/bigint &&
-          make tests
+      - run: cd build && make test
 
 workflows:
   version: 2
