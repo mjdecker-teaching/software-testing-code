@@ -1,49 +1,43 @@
-version: 2
-jobs:
-    build:
-      docker:
-        - image: srcml/ubuntu_x86_64_base
-      steps:
-        - checkout
-        - run: > cd my_stl &&
-                 mkdir build &&
-                 cd build &&
-                 cmake ../ -DBUILD_UNIT_TESTS=On &&
-                 make &&
-                 make test
-
-# Workflow with build/test and data sharing
+# Simple Setup
 # version: 2
 # jobs:
-#   build:
-#     docker:
-#       - image: srcml/ubuntu_x86_64_base
-#     steps:
-#       - checkout
-#       - run: cd assignments/bigint &&
-#           make bigint.o
-#       - run: mkdir -p bin &&
-#           mv assignments/bigint/bigint.o bin/
-#       - persist_to_workspace:
-#           root: bin
-#           paths: 
-#             - bigint.o
-#   test:
-#     docker:
-#       - image: srcml/ubuntu_x86_64_base
-#     steps:
-#       - checkout
-#       - attach_workspace:
-#           at: bin
-#       - run: cp bin/bigint.o assignments/bigint/
-#       - run: cd assignments/bigint &&
-#           make tests
+#     build:
+#       docker:
+#         - image: srcml/ubuntu_x86_64_base
+#       steps:
+#         - checkout
+#         - run: cd my_stl && mkdir build && cd build && cmake ../ -DBUILD_UNIT_TESTS=On && make && make test
 
-# workflows:
-#   version: 2
-#   build_and_test:
-#     jobs:
-#       - build
-#       - test:
-#           requires:
+# Workflow with build/test and data sharing
+version: 2
+jobs:
+  build:
+    docker:
+      - image: srcml/ubuntu_x86_64_base
+    steps:
+      - checkout
+      - run: mkdir build
+      - run: cd build && cmake ../my_stl -DBUILD_UNIT_TESTS=On && make
+      - persist_to_workspace:
+          root: build
+          paths: 
+            - build/*
+  test:
+    docker:
+      - image: srcml/ubuntu_x86_64_base
+    steps:
+      - checkout
+      - attach_workspace:
+          at: my_st/build
+      - run: cp bin/bigint.o assignments/bigint/
+      - run: cd assignments/bigint &&
+          make tests
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
             - build
