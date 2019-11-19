@@ -15,15 +15,7 @@ include_directories(src/set/ src/stack src/string)
 #link_directories(/usr/local/lib)
 
 # for current directory and below
-if(${CMAKE_COMPILER_IS_GNUCXX})
-    # coverage is gcc only
-    add_definitions(-fPIC -std=c++0x -g -O0 -fprofile-arcs -ftest-coverage)
-#set(CMAKE_CXX_FLAGS "--std=c++0x")
-elseif("x${CMAKE_CXX_COMPILER_ID}" STREQUAL "xClang")
-    add_definitions(-std=c++11)
-else()
-    message(FATAL_ERROR "Unknown compiler: ${CMAKE_CXX_COMPILER_ID}.")
-endif()
+add_definitions(-fPIC -std=c++0x -g -O0)
 
 # will need to use foo or something as do not have permission to install
 set(CMAKE_INSTALL_PREFIX "/usr/local")
