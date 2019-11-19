@@ -21,14 +21,14 @@ jobs:
       - persist_to_workspace:
           root: build
           paths: 
-            - build/*
+            - *
   test:
     docker:
       - image: srcml/ubuntu_x86_64_base
     steps:
       - checkout
       - attach_workspace:
-          at: my_st/build
+          at: build
       - run: cd build && make test
 
 workflows:
