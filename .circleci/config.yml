@@ -6,4 +6,4 @@ jobs:
         - image: srcml/ubuntu_x86_64_base
       steps:
         - checkout
-        - run: cd my_stl && mkdir build && cd build && cmake ../ -DBUILD_UNIT_TESTS=On && make tests
+        - run: cd my_stl && mkdir build && cd build && cmake ../ -DBUILD_UNIT_TESTS=On && make test
