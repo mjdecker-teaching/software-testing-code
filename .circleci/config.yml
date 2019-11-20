@@ -17,7 +17,7 @@ jobs:
       steps:
         - checkout
         - run: mkdir build
-        - run: cd build && cmake ../ -DBUILD_UNIT_TESTS=On && make
+        - run: cd build && cmake ../my_stl -DBUILD_UNIT_TESTS=On && make
         - persist_to_workspace:
             root: build
             paths:
