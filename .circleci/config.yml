@@ -16,21 +16,21 @@ jobs:
         - image: srcml/ubuntu_x86_64_base
       steps:
         - checkout
-	- run: mkdir build
-	- run: cd build && cmake ../ -DBUILD_UNIT_TESTS=On && make
+        - run: mkdir build
+        - run: cd build && cmake ../ -DBUILD_UNIT_TESTS=On && make
         - persist_to_workspace:
-	  root: build
-	  paths:
-	    - ./*
+            root: build
+            paths:
+              - ./*
 
     test:
       docker:
         - image: srcml/ubuntu_x86_64_base
       steps:
         - checkout
-	- attach_workspace:
-	    at: build
-	- run: cd build && make test
+        - attach_workspace:
+            at: build
+        - run: cd build && make test
 
 workflows:
   version: 2
@@ -38,5 +38,5 @@ workflows:
     jobs:
       - build
       - test:
-        requires:
-          - build
+          requires:
+            - build
