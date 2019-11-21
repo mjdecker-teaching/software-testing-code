@@ -14,8 +14,7 @@ version: 2
 jobs:
   build:
     docker:
-#      - image: srcml/ubuntu_x86_64_base
-       - image: mjdecker/my_stl
+      - image: srcml/ubuntu_x86_64_base
     steps:
       - checkout
       - run: mkdir build
