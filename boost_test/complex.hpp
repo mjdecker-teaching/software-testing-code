@@ -13,7 +13,7 @@
 #include <stdexcept>
 
 class complex {
-private:
+public:
   double real;
   double imaginary;
 
@@ -21,17 +21,17 @@ public:
   complex(double real = 0, double imaginary = 0)
     : real(real), imaginary(imaginary) {}
 
-  bool operator==(const complex & that) const {
+/*  bool operator==(const complex & that) const {
     return real == that.real && imaginary == that.imaginary;
   }
-
+*/
   friend complex operator+(complex lhs, const complex & rhs) {
     return complex(lhs.real + rhs.real, lhs.imaginary + rhs.imaginary);
   }
 
   friend complex operator/(complex lhs, const complex & rhs) throw(std::invalid_argument) {
     // not going to waste time with real division
-    if(rhs == complex()) throw std::invalid_argument("rhs is zero");
+//    if(rhs == complex()) throw std::invalid_argument("rhs is zero");
     return complex(lhs.real / rhs.real);
   }
 

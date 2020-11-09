@@ -1,6 +1,6 @@
 #define BOOST_TEST_MODULE complex
+
 #include <boost/test/included/unit_test.hpp>
-#include <boost/test/data/monomorphic.hpp>
 #include <boost/test/data/test_case.hpp>
 
 #include <iostream>
