@@ -1,5 +1,5 @@
 /**
- * @file sessioncpp
+ * @file session.cpp
  *
  * Testing a session class. Which gives how long is a session.
 */
@@ -33,7 +33,7 @@ int main() {
 
 	{
 		Session s;
-		// Wait two seconds
+		// Wait an hour
 		sleep(3600);
 		assert(s.elapsed() == 3600);
 	}
